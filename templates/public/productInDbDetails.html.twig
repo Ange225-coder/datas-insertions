@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail de {{ productDetails.name }}{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Details de <em>{{ productDetails.name }}</em></h1>
+
+        <div>
+            <p>
+                <strong>Nom du produit : </strong> {{ productDetails.name }}
+            </p>
+
+            <p>
+                <strong>Prix du produit : </strong> {{ productDetails.price }} Fcfa
+            </p>
+
+            <p>
+                {% if imgData is not empty %}
+                    <img src="data:{{ imgType }};base64, {{ imgData }}" alt="{{ productDetails.name }}" width="200">
+                {% endif %}
+            </p>
+        </div>
+    </section>
+{% endblock %}

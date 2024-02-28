@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Insertion - accueil{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Bienvenu dans les insertions d'images cas pratique</h1>
+
+        <div>
+            <p>
+                <a href="{{ path('add_product_db') }}">Insertion en base de données</a><br >
+                <a href="{{ path('product_db_list') }}">Voir les images en base de données</a>
+            </p>
+
+            <p>
+                <a href="{{ path('add_product_file') }}">Insertion d'images dans le system de fichiers</a><br >
+                <a href="{{ path('product_file_list') }}">Voir les images dans des fichiers</a>
+            </p>
+        </div>
+    </section>
+{% endblock %}

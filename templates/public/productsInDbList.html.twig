@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des produits enrégistré en base{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Liste des produits enregistrés en base de données</h1>
+
+        {% for key, product in products %}
+            <div>
+                <p>
+                    {{ product.name }}
+                </p>
+
+                <p>
+                    {{ product.price }}Fcfa
+                </p>
+
+                <div class="img">
+                    {% if imgData[key] is not empty %}
+                        <p>
+                            <img src="data:{{ imgType[key] }};base64,{{ imgData[key] }}" alt="{{ product.name }}" width="200">
+                        </p>
+                    {% else %}
+                        <p>
+                            Aucune image disponible
+                        </p>
+                    {% endif %}
+                </div>
+
+                <p>
+                    <a href="{{ path('product_db_details', {'id_product' : product.id}) }}">Détails du produit</a>
+                </p>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}

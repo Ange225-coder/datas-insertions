@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des produits enregistrés dans le système de fichiers{% endblock %}
+
+{% block body %}
+    <section>
+        <h1>Liste des produits enregistrés dans le système de fichiers({{ productsInFile|length }})</h1>
+
+        {% for products in productsInFile %}
+            <div>
+                <p>
+                    <strong>Nom du produit : </strong>{{ products.name }}
+                </p>
+
+                <p>
+                    <strong>Prix du produit : </strong> {{ products.price }}
+                </p>
+
+                <p>
+                    <img src="{{ asset(products.image) }}" alt="{{ products.name }}" width="200">
+                </p>
+
+                <p>
+                    <a href="{{ path('product_file_details', {'product_id' : products.id}) }}">Détails du produit</a>
+                </p>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}
